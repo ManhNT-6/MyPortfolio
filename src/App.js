@@ -45,12 +45,41 @@ export default function App() {
             </section>
 
             {/* About Section */}
-            <section id="about" className="section about">
+            <section id="about" className="about-section">
                 <h2 className="section-title">About Me</h2>
-                <p>
-                    I’m a passionate Game Developer who loves blending code, art, and
-                    storytelling to bring worlds to life.
-                </p>
+                <div className="about-content">
+                    <div className="profile-image">
+                        <img
+                            src="https://i.ibb.co/album/yourimage.png"
+                            alt="Profile"
+                            className="glow-image"
+                        />
+                    </div>
+                    <div className="about-text">
+                        <h3 className="intro-title">
+                            Hello! I'm <span className="highlight">Tien Manh</span> 👋
+                        </h3>
+                        <p className="description">
+                            I’m a passionate <strong>Game Developer</strong> and{" "}
+                            <strong>Frontend Engineer</strong> who loves transforming ideas into
+                            interactive experiences. My work blends{" "}
+                            <em>code, art, and design</em> — aiming to create digital worlds that
+                            feel alive.
+                        </p>
+                        <p className="description">
+                            I enjoy experimenting with <strong>Unity</strong>, building{" "}
+                            <strong>React-based apps</strong>, and crafting stunning UI
+                            interactions that bring delight to users.
+                        </p>
+
+                        <div className="skills">
+                            <span className="skill">🎮 Unity</span>
+                            <span className="skill">⚛️ React</span>
+                            <span className="skill">💡 UI/UX</span>
+                            <span className="skill">🧠 Problem Solving</span>
+                        </div>
+                    </div>
+                </div>
             </section>
 
             {/* Projects Section */}

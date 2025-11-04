@@ -20,58 +20,84 @@ body {
   position: relative;
 }
 
-/* Hero */
-.hero {
-  background: radial-gradient(circle at top, #0a0a1a, #050505);
+/* Hero Section */
+.section.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* căn giữa theo chiều dọc */
+  align-items: center;     /* căn giữa theo chiều ngang */
+  text-align: center;
+  min-height: 70vh;       /* chiếm toàn bộ chiều cao màn hình */
+  padding: 60px 20px;
 }
 
-.highlight {
-  background: linear-gradient(90deg, cyan, #ff4dc4, #8000ff);
-  background-size: 200%;
+.section.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.section.hero .highlight {
+  background: linear-gradient(90deg, cyan, pink, purple);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradientFlow 4s linear infinite;
+  animation: gradientMove 5s linear infinite;
+  background-size: 300%;
 }
 
-@keyframes gradientFlow {
-  0% { background-position: 0%; }
-  100% { background-position: 200%; }
+@keyframes gradientMove {
+  from {
+    background-position: 0%;
+  }
+  to {
+    background-position: 300%;
+  }
 }
 
+.section.hero p {
+  max-width: 600px;
+  margin: 20px auto;
+  color: #aaa;
+  font-size: 1.1rem;
+}
+
+/* Button group */
 .btn-group {
+  margin-top: 30px;
   display: flex;
-  gap: 16px;
-  margin-top: 20px;
+  justify-content: center;
+  gap: 20px;
 }
 
-.btn-primary {
-  background: linear-gradient(90deg, cyan, #1e90ff);
-  color: black;
-  padding: 12px 24px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s;
-}
-.btn-primary:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px cyan;
-}
-
+.btn-primary,
 .btn-outline {
-  border: 2px solid cyan;
-  color: cyan;
+  display: inline-block;
   padding: 12px 24px;
-  border-radius: 999px;
-  text-decoration: none;
+  border-radius: 50px;
+  cursor: pointer;
   font-weight: 600;
-  transition: 0.3s;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
-.btn-outline:hover {
-  background: cyan;
+
+/* Primary Button */
+.btn-primary {
+  background: linear-gradient(90deg, cyan, blue);
+  border: none;
   color: black;
-  box-shadow: 0 0 20px cyan;
+}
+
+/* Outline Button */
+.btn-outline {
+  border: 1px solid cyan;
+  background: transparent;
+  color: cyan;
+}
+
+/* Hover effects */
+.btn-primary:hover,
+.btn-outline:hover {
   transform: scale(1.05);
+  box-shadow: 0 0 15px cyan;
 }
 
 /* Section titles */
@@ -126,5 +152,93 @@ body {
 .section.visible .section-title {
   text-shadow: 0 0 15px rgba(0, 255, 255, 0.6),
   0 0 25px rgba(255, 77, 196, 0.4);
+}
+
+/* --- About Section --- */
+.about-section {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* căn giữa theo chiều dọc */
+  align-items: center;
+  padding: 50px 20px 40px; /* đẩy section cao hơn */
+  background: #000;
+  color: white;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  background: linear-gradient(90deg, #00ffff, #ff00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 40px;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.about-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.profile-image img {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+  object-fit: cover;
+}
+
+.about-text {
+  max-width: 600px;
+  text-align: center; /* căn giữa toàn bộ phần text và skill */
+}
+
+.intro-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #00ffff;
+  margin-bottom: 15px;
+}
+
+.highlight {
+  color: #00ffff;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 15px;
+  color: #ddd;
+}
+
+.skills {
+  display: flex;
+  justify-content: center; /* căn giữa icon skill */
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.skill {
+  background: rgba(0, 255, 255, 0.1);
+  border: 1px solid rgba(0, 255, 255, 0.3);
+  border-radius: 25px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  color: #00ffff;
+  box-shadow: 0 0 8px rgba(0, 255, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.skill:hover {
+  background: rgba(0, 255, 255, 0.3);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+  transform: translateY(-3px);
 }
 
