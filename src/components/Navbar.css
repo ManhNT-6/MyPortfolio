@@ -1,0 +1,127 @@
+.navbar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 40px;
+    background: rgba(5, 5, 20, 0.8);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+    color: white;
+    font-family: "Poppins", sans-serif;
+    z-index: 100;
+}
+
+/* Left section */
+.navbar-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-box {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, cyan, #1e90ff);
+    color: #000;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: cyan;
+}
+
+/* Center section */
+.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.navbar-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    background: cyan;
+    background-size: 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradientRun 6s linear infinite;
+}
+
+@keyframes gradientRun {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 300%;
+    }
+}
+
+/* Right section */
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-link {
+    color: #aaa;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #fff;
+}
+
+/* Underline hover effect */
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, cyan, #ff4dc4, #8000ff);
+    transition: width 0.4s ease;
+    border-radius: 4px;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* LED Bar */
+.led-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    overflow: hidden;
+}
+
+.led-light {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, cyan, #ff4dc4, #8000ff, cyan);
+    background-size: 300%;
+    animation: ledGlow 4s linear infinite;
+    filter: drop-shadow(0 0 10px cyan) drop-shadow(0 0 20px #ff4dc4);
+}
+
+@keyframes ledGlow {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 300%;
+    }
+}
