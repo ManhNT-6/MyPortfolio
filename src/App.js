@@ -1,61 +1,79 @@
-import React from "react";
-import "./App.css";
+import React, { useEffect } from "react";
 import Navbar from "./components/Navbar";
+import "./App.css";
 
 export default function App() {
-  return (
-      <div className="app">
-        {/* Navbar */}
-          <nav className="navbar">
-              {/* Left: Logo */}
-              <div className="navbar-left">
-                  <div className="logo-box">TM</div>
-                  <span className="logo-text">TienManh</span>
-              </div>
+    useEffect(() => {
+        const sections = document.querySelectorAll(".section");
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    }
+                });
+            },
+            { threshold: 0.2 } // khi 20% section hiển thị thì chạy animation
+        );
 
-              {/* Center: Portfolio Title */}
-              <div className="navbar-center">
-                  <h1 className="navbar-title">Portfolio</h1>
-              </div>
+        sections.forEach((section) => observer.observe(section));
+        return () => observer.disconnect();
+    }, []);
 
-              {/* Right: Menu */}
-              <div className="navbar-right">
-                  <a href="#projects" className="nav-link">
-                      Projects
-                  </a>
-                  <a href="#about" className="nav-link">
-                      About
-                  </a>
-                  <a href="#contact" className="nav-link">
-                      Contact
-                  </a>
-              </div>
+    return (
+        <div className="app">
+            <Navbar />
 
-              {/* LED Bar */}
-              <div className="led-bar">
-                  <div className="led-light"></div>
-              </div>
-          </nav>
+            {/* Hero Section */}
+            <section id="home" className="section hero">
+                <h1>
+                    Hey there! I'm{" "}
+                    <span className="highlight">Nguyen Tien Manh</span>
+                </h1>
+                <p>
+                    Crafting immersive gaming experiences where technology and
+                    creativity collide.
+                </p>
+                <div className="btn-group">
+                    <a href="#projects" className="btn-primary">
+                        Check My Projects
+                    </a>
+                    <a href="#contact" className="btn-outline">
+                        Hit Me Up
+                    </a>
+                </div>
+            </section>
 
-        {/* Hero Section */}
-        <main className="hero">
-          <h1>
-            Hey there! I'm{" "}
-            <span className="gradient">Nguyen Tien Manh</span>
-          </h1>
-          <p>
-            Crafting immersive gaming experiences where technology and creativity collide.
-          </p>
-          <div className="buttons">
-            <button className="primary">Check My Projects</button>
-            <button className="secondary">Hit Me Up</button>
-          </div>
-        </main>
+            {/* About Section */}
+            <section id="about" className="section about">
+                <h2 className="section-title">About Me</h2>
+                <p>
+                    I’m a passionate Game Developer who loves blending code, art, and
+                    storytelling to bring worlds to life.
+                </p>
+            </section>
 
-        {/* Footer */}
-        <footer className="footer">
-          © 2025 Nguyen Tien Manh • Crafted with ❤️ using React
-        </footer>
-      </div>
-  );
+            {/* Projects Section */}
+            <section id="projects" className="section projects">
+                <h2 className="section-title">Projects</h2>
+                <p>
+                    Here are some of my featured games and interactive works.
+                </p>
+            </section>
+
+            {/* Contact Section */}
+            <section id="contact" className="section contact">
+                <h2 className="section-title">Contact</h2>
+                <p>
+                    Let’s connect! Reach me at{" "}
+                    <strong>your.email@gmail.com</strong>
+                </p>
+            </section>
+
+            {/* Footer */}
+            <footer className="footer">
+                © 2025 Nguyen Tien Manh • Crafted with ❤️ using React
+            </footer>
+        </div>
+    );
 }

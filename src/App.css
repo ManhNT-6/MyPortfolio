@@ -1,146 +1,130 @@
-body, html, .app {
+html {
+  scroll-behavior: smooth;
+}
+
+body {
   margin: 0;
-  padding: 0;
-  background: linear-gradient(to bottom, #050505, #0a0a1a, #0f1224);
+  font-family: "Poppins", sans-serif;
+  background: #050505;
   color: white;
-  font-family: 'Poppins', sans-serif;
+}
+
+.section {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-}
-
-/* Navbar */
-.navbar {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 60px;
-  background: rgba(10, 10, 26, 0.5);
-  border-bottom: 1px solid rgba(0, 255, 255, 0.1);
-  backdrop-filter: blur(6px);
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.tm {
-  width: 40px;
-  height: 40px;
-  background: linear-gradient(135deg, cyan, blue);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
   justify-content: center;
-  font-weight: bold;
-  color: black;
-}
-
-.name {
-  font-size: 1.3rem;
-  color: cyan;
-}
-
-.links a {
-  color: #ddd;
-  margin-left: 25px;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.links a:hover {
-  color: cyan;
-}
-
-.led-bar {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, cyan, pink, purple, cyan);
-  background-size: 300%;
-  animation: ledRun 4s linear infinite;
-  filter: drop-shadow(0 0 6px cyan);
-}
-
-@keyframes ledRun {
-  from { background-position: 0%; }
-  to { background-position: 300%; }
+  align-items: center;
+  text-align: center;
+  padding: 100px 20px;
+  position: relative;
 }
 
 /* Hero */
 .hero {
-  text-align: center;
-  margin: auto;
-  padding: 60px 20px;
+  background: radial-gradient(circle at top, #0a0a1a, #050505);
 }
 
-.hero h1 {
-  font-size: 3rem;
-  font-weight: 700;
-}
-
-.hero .gradient {
-  background: linear-gradient(90deg, cyan, pink, purple);
+.highlight {
+  background: linear-gradient(90deg, cyan, #ff4dc4, #8000ff);
+  background-size: 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: gradientMove 5s linear infinite;
-  background-size: 300%;
+  animation: gradientFlow 4s linear infinite;
 }
 
-@keyframes gradientMove {
-  from { background-position: 0%; }
-  to { background-position: 300%; }
+@keyframes gradientFlow {
+  0% { background-position: 0%; }
+  100% { background-position: 200%; }
 }
 
-.hero p {
-  max-width: 600px;
-  margin: 20px auto;
-  color: #aaa;
-  font-size: 1.1rem;
-}
-
-.buttons {
-  margin-top: 30px;
+.btn-group {
   display: flex;
-  justify-content: center;
-  gap: 20px;
+  gap: 16px;
+  margin-top: 20px;
 }
 
-button {
-  padding: 12px 24px;
-  border-radius: 50px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.primary {
-  background: linear-gradient(90deg, cyan, blue);
-  border: none;
+.btn-primary {
+  background: linear-gradient(90deg, cyan, #1e90ff);
   color: black;
+  padding: 12px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
 }
-
-.secondary {
-  border: 1px solid cyan;
-  background: transparent;
-  color: cyan;
-}
-
-button:hover {
+.btn-primary:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 15px cyan;
+  box-shadow: 0 0 20px cyan;
+}
+
+.btn-outline {
+  border: 2px solid cyan;
+  color: cyan;
+  padding: 12px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+.btn-outline:hover {
+  background: cyan;
+  color: black;
+  box-shadow: 0 0 20px cyan;
+  transform: scale(1.05);
+}
+
+/* Section titles */
+.section-title {
+  font-size: 2rem;
+  background: linear-gradient(90deg, cyan, #ff4dc4, #8000ff);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientFlow 4s linear infinite;
+  margin-bottom: 16px;
+}
+
+/* Projects / About / Contact backgrounds */
+.projects {
+  background: linear-gradient(180deg, #080812, #0a0a1a);
+}
+
+.about {
+  background: linear-gradient(180deg, #0a0a1a, #100c20);
+}
+
+.contact {
+  background: linear-gradient(180deg, #100c20, #050505);
 }
 
 /* Footer */
 .footer {
+  padding: 20px 0;
   text-align: center;
-  padding: 15px;
   font-size: 0.9rem;
-  color: #999;
-  border-top: 1px solid rgba(0, 255, 255, 0.1);
+  background: rgba(5, 5, 20, 0.8);
+  border-top: 1px solid rgba(0, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
 }
+/* Animation when scrolling into view */
+.section {
+  opacity: 0;
+  transform: translateY(80px);
+  transition: all 1s ease-out;
+  filter: brightness(0.6);
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: brightness(1);
+  box-shadow: 0 0 50px rgba(0, 255, 255, 0.1);
+}
+
+/* Optional glowing text effect when visible */
+.section.visible .section-title {
+  text-shadow: 0 0 15px rgba(0, 255, 255, 0.6),
+  0 0 25px rgba(255, 77, 196, 0.4);
+}
+
