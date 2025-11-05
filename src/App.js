@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import BackToTop from "./components/BackToTop";
+import Contact from "./components/Contact";
 import "./App.css";
 
 export default function App() {
@@ -92,13 +93,14 @@ export default function App() {
             </section>
 
             {/* Contact Section */}
-            <section id="contact" className="section contact">
-                <h2 className="section-title">Contact</h2>
-                <p>
-                    Let’s connect! Reach me at{" "}
-                    <strong>your.email@gmail.com</strong>
-                </p>
-            </section>
+            {/*<section id="contact" className="section contact">*/}
+            {/*    <h2 className="section-title">Contact</h2>*/}
+            {/*    <p>*/}
+            {/*        Let’s connect! Reach me at{" "}*/}
+            {/*        <strong>your.email@gmail.com</strong>*/}
+            {/*    </p>*/}
+            {/*</section>*/}
+            <Contact />
 
             <BackToTop />
 
