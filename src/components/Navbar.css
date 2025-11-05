@@ -71,14 +71,14 @@
 }
 
 .nav-link {
-    color: #aaa;
+    color: cyan;
     text-decoration: none;
     position: relative;
     transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-    color: #fff;
+    color: cyan;
 }
 
 /* Underline hover effect */

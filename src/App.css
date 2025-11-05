@@ -242,3 +242,64 @@ body {
   transform: translateY(-3px);
 }
 
+/* Back To top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid cyan;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  z-index: 1000;
+  animation: glowPulse 2.5s ease-in-out infinite;
+}
+
+/* Hiện dần khi scroll */
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Hiệu ứng phát sáng */
+@keyframes glowPulse {
+  0% {
+    box-shadow: 0 0 8px cyan, 0 0 15px cyan;
+  }
+  50% {
+    box-shadow: 0 0 20px cyan, 0 0 35px blue;
+  }
+  100% {
+    box-shadow: 0 0 8px cyan, 0 0 15px cyan;
+  }
+}
+
+/* Hover sáng mạnh hơn */
+.back-to-top:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 25px cyan, 0 0 40px blue;
+}
+
+/* Mũi tên SVG glow */
+.arrow-icon {
+  filter: drop-shadow(0 0 6px cyan);
+  transition: all 0.3s ease;
+}
+
+.back-to-top:hover .arrow-icon {
+  filter: drop-shadow(0 0 12px cyan);
+  transform: translateY(-2px);
+}
+
+

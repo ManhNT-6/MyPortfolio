@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Navbar from "./components/Navbar";
+import BackToTop from "./components/BackToTop";
 import "./App.css";
 
 export default function App() {
@@ -98,6 +99,8 @@ export default function App() {
                     <strong>your.email@gmail.com</strong>
                 </p>
             </section>
+
+            <BackToTop />
 
             {/* Footer */}
             <footer className="footer">
